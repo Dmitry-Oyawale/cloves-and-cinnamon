@@ -348,13 +348,21 @@ You may use Figma to design your interface:
       <img src="images/figma.jpg"  border="2">
   </kbd>
 
-<kbd><img src ="md-images/img.png"></img></kbd>
+<kbd>Applications and references (student): <img src ="md-images/apps_refs.png"></img></kbd>
 
-<kbd><img src ="md-images/img_1.png"></img></kbd>
+<kbd>My positions (faculty): <img src ="md-images/my_positions.png"></img></kbd>
 
-<kbd><img src ="md-images/img_2.png"></img></kbd>
+<kbd>Login page (all): <img src ="md-images/login_page.png"></img></kbd>
 
-<kbd><img src ="md-images/img_3.png"></img></kbd>
+<kbd>Application page (student): <img src ="md-images/application_page.png"></img></kbd>
+
+<kbd>Edit or create position (faculty): <img src ="md-images/edit_or_create.png"></img></kbd>
+
+<kbd>Edit student profile (student): <img src ="md-images/student_profile_edit.png"></img></kbd>
+
+<kbd>View student profile (faculty): <img src ="md-images/view_student_profile.png"></img></kbd>
+
+<kbd>Inbox (faculty): <img src ="md-images/inbox.png"></img></kbd>
 
 
 ----
