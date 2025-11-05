@@ -71,7 +71,7 @@ This section will include the user stories you identified for your project. Make
 6. As a student, I want to view application status and reference updates, so that I can track the progress of my applications and stay informed about any changes or feedback made by the supervisor.
 7. As a student, I want to withdraw my “pending” applications, so that I can manage my application list and avoid confusion with positions I no longer want to pursue.
 8. As a student, I want to select from a predefined list of values (including date, time, etc.) so I can filter the available research opportunities and choose the most suitable one.
-9.As a student, I want to view the detailed information of recommended positions, so that I can evaluate the project.
+9. As a student, I want to view the detailed information of recommended positions, so that I can evaluate the project.
 10. As a student. I want to reference a professor, so it will bolster my credibility in the application.
 11. As a student, I would like to view and edit my profile information, so that I can adjust my personal and academic information in the system.
 
@@ -86,7 +86,7 @@ This section will include the user stories you identified for your project. Make
 8. As a faculty, I want to reject student applications so better people can be accepted
 9. As a faculty, I want to edit the predefined list of values from which user can select so they have more diversity of choice
 10. As a faculty, I want to edit or delete undergraduate research positions, in case I made a mistake.
-11. As a faculty, I want to be notified. When a student references me in their application so I can approve or decline the reference
+11. As a faculty, I want to be notified when a student references me in their application so I can approve or decline the reference
 
 ----
 ## 2.3 Use Cases
