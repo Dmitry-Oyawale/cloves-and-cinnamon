@@ -302,14 +302,6 @@ Customers/users include student and faculty that is part of the school organizat
 ----
 # 3. User Interface
 
-Here you should include the sketches or mockups for the main parts of the interface.
-You may use Figma to design your interface:
-
-  Example image. The image file is in the `./images` directory.
-  <kbd>
-      <img src="images/figma.jpg"  border="2">
-  </kbd>
-
 <kbd>Applications and references (student): <img src ="md-images/apps_refs.png"></img></kbd>
 
 <kbd>My positions (faculty): <img src ="md-images/my_positions.png"></img></kbd>
