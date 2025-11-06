@@ -316,6 +316,9 @@ Customers/users include student and faculty that is part of the school organizat
 
 <kbd>Open positions (student): <img src ="md-images/open_positions.png"></img></kbd>
 
+<kbd>Position details (all): <img src ="md-images/position_details.png"></img></kbd>
+
+<kbd>Applications for a position (faculty): <img src ="md-images/apps_for_position.png"></img></kbd>
 
 ----
 # 4. Product Backlog
