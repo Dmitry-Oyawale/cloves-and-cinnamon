@@ -157,9 +157,9 @@ Customers/users include student and faculty that is part of the school organizat
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | Name | Reference a professor                                                                                                                |
 | Participating actor | Student                                                                                                                              |
-| Entry condition(s) | Student is logged in and provides a professor as a reference.                                                                        |
+| Entry condition(s) | Student is logged in and is in the application page.                                                                        |
 | Exit condition(s) | Reference request is sent.                                                                                                           |
-| Flow of events | 1. The student enters the professor’s information. 2. The system sends the reference request.                                        |
+| Flow of events | 1. The student enters the professor’s information in the references section. 2. The system sends the reference request.                                        |
 | Alternative flow of events | 1. The student enters a non-existing professor's information. 2. The system notifies the student that such professor does not exist. |
 | Iteration # | 2                                                                                                                                    |
 
