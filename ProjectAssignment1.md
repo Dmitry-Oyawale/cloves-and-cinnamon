@@ -196,9 +196,7 @@ Customers/users include student and faculty that is part of the school organizat
 | Exit condition(s) | Reference status updated. |
 | Flow of events | 1. The faculty opens their profile page and sees reference requests. 2. The faculty reviews a reference request. 3. The faculty approves or declines. 4. The system updates the reference status. |
 | Alternative flow of events | 1. The faculty reviews reference requests in the profile page. 2. The faculty closes the page without responding. |
-| Iteration # | 3 |
-                                                                                            |
-
+| Iteration # | 3 |                                                                          
 
 ----
 # 3. User Interface
@@ -216,6 +214,8 @@ Customers/users include student and faculty that is part of the school organizat
 <kbd>Edit student profile (student): <img src ="md-images/student_profile_edit.png"></img></kbd>
 
 <kbd>View student profile (faculty): <img src ="md-images/view_student_profile.png"></img></kbd>
+
+<kbd>View profile (faculty): <img src ="md-images/view_faculty_profile.png"></img></kbd>
 
 <kbd>Inbox (faculty): <img src ="md-images/inbox.png"></img></kbd>
 
