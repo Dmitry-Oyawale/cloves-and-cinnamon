@@ -6,7 +6,7 @@ Prepared by:
 
 * `Kevin Lai`,`resumemaxxers`
 * `Ziyue Chen`,`resumemaxxers`
-* `JimXiang`,`resumemaxxers`
+* `Jim Xiang`,`resumemaxxers`
 * `Matvey Shestopalov`,`resumemaxxers`
 
 ---
@@ -50,7 +50,7 @@ Our software aims to facilitate easier communication between faculty and student
 
 ## 2.1 Customer, Users, and Stakeholders
 
-Customers/users include student and faculty that is part of the school organization who create and access the application forms. Stakeholders include students who benefit from the experienced provided by various research opportunities, and faculty who benefit from additional assistance from the students. The university administration is also interested in a streamlined research culture as an avenue towards enhancing their institutional reputation, as well as the project development team responsible the product's creation.
+Customers/users include student and faculty that is part of the school organization who create and access the application forms. Stakeholders include students who benefit from the experience provided by various research opportunities, and faculty who benefit from additional assistance from the students. The university administration is also interested in a streamlined research culture as an avenue towards enhancing their institutional reputation, as well as the project development team responsible the product's creation.
 
 ----
 ## 2.2 User Stories
@@ -68,16 +68,16 @@ Customers/users include student and faculty that is part of the school organizat
 11. As a student, I would like to view and edit my profile information, so that I can adjust my personal and academic information in the system.
 
 
-1. As a faculty, I want to activate my account so I can access the system, post research positions, and complete my profile
-2. As a faculty, I want to login with username and password, so that I can access the system and post research positions
-3. As a faculty, I want to view my account profile so I can have a reference and see recommendation requests
-4. As a faculty, I want to create undergraduate research positions so that students can apply to different researches and solve for a real-life problem.
-5. As a faculty, I want to view my list of applicants for my research position so I can figure out who I want to accept
-6. As a faculty, I want to view a student applicant’s profile so I can figure out whose application I want to approve or reject
-7. As a faculty, I want to approve student applications so they can be accepted into the research position
-8. As a faculty, I want to reject student applications so better people can be accepted
-9. As a faculty, I want to edit the predefined list of values from which user can select so they have more diversity of choice
-10. As a faculty, I want to edit or delete undergraduate research positions, in case I made a mistake.
+1. As a faculty member, I want to activate my account so I can access the system, post research positions, and complete my profile
+2. As a faculty member, I want to login with username and password, so that I can access the system and post research positions
+3. As a faculty member, I want to view my account profile so I can have a reference and see recommendation requests
+4. As a faculty member, I want to create undergraduate research positions so that students can apply to different researches and solve for a real-life problem.
+5. As a faculty member, I want to view my list of applicants for my research position so I can figure out who I want to accept
+6. As a faculty member, I want to view a student applicant’s profile so I can figure out whose application I want to approve or reject
+7. As a faculty member, I want to approve student applications so they can be accepted into the research position
+8. As a faculty member, I want to reject student applications so better people can be accepted
+9. As a faculty member, I want to edit the predefined list of values from which user can select so they have more diversity of choice
+10. As a faculty member, I want to edit or delete undergraduate research positions, in case I made a mistake.
 
 ----
 ## 2.3 Use Cases
