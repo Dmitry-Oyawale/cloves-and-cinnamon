@@ -304,37 +304,3 @@ Provide UI sketches or screenshots for the following pages:
  * Student applying a position
 
 # 3. References
-
-Cite your references here.
-
-For the papers you cite give the authors, the title of the article, the journal name, journal volume number, date of publication and inclusive page numbers. Giving only the URL for the journal is not appropriate.
-
-For the websites, give the title, author (if applicable) and the website URL.
-
-----
-# Appendix: Grading Rubric
-(Please remove this part in your final submission)
-
- * You will first  submit a draft version of this document:
-    * "Project 3 : Project Design Document - draft" (5pts). 
-* We will provide feedback on your document and you will revise and update it.
-    * "Project 5 : Project Design Document - final" (80pts) 
-
-Below is the grading rubric that we will use to evaluate the final version of your document. 
-
-|**MaxPoints**| **Design** |
-|:---------:|:-------------------------------------------------------------------------|
-|           | Are all parts of the document in agreement with the product requirements? |
-| TBA         | Is the architecture of the system ([2.2.1 Overview](#221-overview)) described well, with the major components and their interfaces?         
-| TBA        | Is the database model (i.e., [2.1 Database Model](#21-database-model)) explained well with sufficient detail? Do the team clearly explain the purpose of each table included in the model?| 
-|          | Is the document making good use of semi-formal notation (i.e., UML diagrams)? Does the document provide a clear UML class diagram visualizing the DB model of the system? |
-| TBA        | Is the UML class diagram complete? Does it include all classes (tables) and does it clearly mark the PK and FKs for each table? Does it clearly show the associations between them? Are the multiplicities of the associations shown correctly? ([2.1 Database Model](#21-database-model)) |
-| TBA        | Are all major interfaces (i.e., the routes) listed? Are the routes explained in sufficient detail? ([2.2.2 Interfaces](#222-interfaces)) |
-| TBA        | Is the view and the user interfaces explained well? Did the team provide the screenshots of the interfaces they built so far.  ([2.3 User Interface Design](#23-user-interface-design)) |
-|           | **Clarity** |
-|           | Is the solution at a fairly consistent and appropriate level of detail? Is the solution clear enough to be turned over to an independent group for implementation and still be understood? |
-| TBA         | Is the document carefully written, without typos and grammatical errors?  |
-| TBA         | Is the document well formatted? (Make sure to check your document on GitHub. You will loose points if there are formatting issues in your document.  )  |
-|           |  |
-|          | **Total** |
-|           |  |
