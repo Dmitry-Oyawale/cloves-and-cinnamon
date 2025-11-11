@@ -1,13 +1,13 @@
 # Project Design Document
 
-## Your Project Title
+## Research Position Matcher
 --------
 Prepared by:
 
-* `<author1>`,`<organization>`
-* `<author2>`,`<organization>`
-* `<author3>`,`<organization>`
-* `<author4>`,`<organization>`
+* `<Kevin Lai>`,`<resumemaxxers>`
+* `<Ziyue Chen>`,`<resumemaxxers>`
+* `<JimXiang>`,`<resumemaxxers>`
+* `<Matvey Shestopalov>`,`<resumemaxxers>`
 ---
 
 **Course** : CS 3733 - Software Engineering 
@@ -31,24 +31,230 @@ Prepared by:
 
 ### Document Revision History
 
-| Name | Date | Changes | Version |
-| ------ | ------ | --------- | --------- |
-|Revision 1 |2025-11-14 |Initial draft | 1.0        |
-|      |      |         |         |
+| Name | Date       | Changes | Version |
+| ------ |------------| --------- | --------- |
+|Revision 1 | 2025-11-11 |Initial draft | 1.0        |
+|      |            |         |         |
 
 
 # 1. Introduction
 
-Explain the purpose of this document. If this is a revision of an earlier document, please make sure to summarize what changes have been made during the revision (keep this discussion brief). 
+The purpose of this document is to describe the design of the Research Position Matcher app.
 
 # 2. Software Design
 
-(**Note**: For all subsections of Section-2: You should describe the design for the end product (completed application) - not only your iteration1 version. You will revise this document and add more details later.)
-
 ## 2.1 Database Model
 
-Provide a list of your tables (i.e., SQL Alchemy classes) in your database model and briefly explain the role of each table. 
+Class Tables
 
+### Class Tables
+
+*   **Student**: Represents a student user in the system. It stores their profile information, including GPA, and links to their applications, majors, research interests, courses, and applications.
+    ```sql
+    CREATE TABLE student (
+        id INTEGER NOT NULL,
+        username VARCHAR(64) NOT NULL,
+        firstname VARCHAR(64) NOT NULL,
+        lastname VARCHAR(64) NOT NULL,
+        email VARCHAR(120) NOT NULL,
+        password_hash VARCHAR(256),
+        gpa FLOAT,
+        PRIMARY KEY (id),
+        UNIQUE (username),
+        UNIQUE (email)
+    );
+    ```
+
+*   **Faculty**: Represents a faculty member user. It links to the research positions they have created and the recommendations they have been asked to provide.
+    ```sql
+    CREATE TABLE faculty (
+        id INTEGER NOT NULL,
+        username VARCHAR(64) NOT NULL,
+        firstname VARCHAR(64) NOT NULL,
+        lastname VARCHAR(64) NOT NULL,
+        email VARCHAR(120) NOT NULL,
+        password_hash VARCHAR(256),
+        PRIMARY KEY (id),
+        UNIQUE (username),
+        UNIQUE (email)
+    );
+    ```
+
+*   **Position**: Represents a research position created by a faculty member. It contains all the details about the position, including description, requirements, and start/end dates.
+    ```sql
+    CREATE TABLE position (
+        id INTEGER NOT NULL,
+        name VARCHAR(100) NOT NULL,
+        description VARCHAR(512),
+        start_date DATETIME,
+        end_date DATETIME,
+        team_size INTEGER NOT NULL,
+        min_gpa FLOAT,
+        faculty_id INTEGER NOT NULL,
+        ref_required BOOLEAN NOT NULL,
+        PRIMARY KEY (id),
+        FOREIGN KEY(faculty_id) REFERENCES faculty (id)
+    );
+    ```
+
+*   **Application**: Represents a student's application to a specific research Position. It stores the student's statement and the status of the application (e.g., pending, accepted, rejected).
+    ```sql
+    CREATE TABLE application (
+        id INTEGER NOT NULL,
+        student_id INTEGER NOT NULL,
+        position_id INTEGER NOT NULL,
+        statement VARCHAR(1500),
+        status VARCHAR(64) NOT NULL,
+        created_at DATETIME NOT NULL,
+        PRIMARY KEY (id),
+        FOREIGN KEY(student_id) REFERENCES student (id),
+        FOREIGN KEY(position_id) REFERENCES position (id)
+    );
+    ```
+
+*   **Major**: A simple table that stores the names of academic majors. It is used to associate students and positions with specific majors.
+    ```sql
+    CREATE TABLE major (
+        id INTEGER NOT NULL,
+        name VARCHAR(100) NOT NULL,
+        PRIMARY KEY (id),
+        UNIQUE (name)
+    );
+    ```
+
+*   **Course**: Stores information about individual courses, including their name and number. It is linked to a Major.
+    ```sql
+    CREATE TABLE course (
+        id INTEGER NOT NULL,
+        name VARCHAR(100) NOT NULL,
+        coursenum VARCHAR(10) NOT NULL,
+        major_id INTEGER NOT NULL,
+        PRIMARY KEY (id),
+        FOREIGN KEY(major_id) REFERENCES major (id)
+    );
+    ```
+
+*   **Recommendation**: Tracks a request from a Student to a Faculty member for a recommendation. It holds the status of the request.
+    ```sql
+    CREATE TABLE recommendation (
+        id INTEGER NOT NULL,
+        student_id INTEGER NOT NULL,
+        faculty_id INTEGER NOT NULL,
+        status VARCHAR(64) NOT NULL,
+        PRIMARY KEY (id),
+        FOREIGN KEY(student_id) REFERENCES student (id),
+        FOREIGN KEY(faculty_id) REFERENCES faculty (id)
+    );
+    ```
+
+*   **ResearchTopic**: A table to store different research topics. This allows for connecting students' interests and position requirements.
+    ```sql
+    CREATE TABLE research_topic (
+        name VARCHAR(100) NOT NULL,
+        PRIMARY KEY (name)
+    );
+    ```
+
+*   **Language**: A table to store different languages.
+    ```sql
+    CREATE TABLE language (
+        name VARCHAR(100) NOT NULL,
+        PRIMARY KEY (name)
+    );
+    ```
+
+### Association Tables
+
+*   **students_majors**: Links students with their respective majors.
+    ```sql
+    CREATE TABLE students_majors (
+        student_id INTEGER NOT NULL,
+        major_id INTEGER NOT NULL,
+        PRIMARY KEY (student_id, major_id),
+        FOREIGN KEY(student_id) REFERENCES student (id),
+        FOREIGN KEY(major_id) REFERENCES major (id)
+    );
+    ```
+
+*   **students_research_topics**: Links students with their research interests.
+    ```sql
+    CREATE TABLE students_research_topics (
+        student_id INTEGER NOT NULL,
+        research_topic_name VARCHAR NOT NULL,
+        PRIMARY KEY (student_id, research_topic_name),
+        FOREIGN KEY(student_id) REFERENCES student (id),
+        FOREIGN KEY(research_topic_name) REFERENCES research_topic (name)
+    );
+    ```
+
+*   **students_languages**: Links students with the languages they know.
+    ```sql
+    CREATE TABLE students_languages (
+        student_id INTEGER NOT NULL,
+        language_name VARCHAR NOT NULL,
+        PRIMARY KEY (student_id, language_name),
+        FOREIGN KEY(student_id) REFERENCES student (id),
+        FOREIGN KEY(language_name) REFERENCES language (name)
+    );
+    ```
+
+*   **positions_majors**: Links research positions with required academic majors.
+    ```sql
+    CREATE TABLE positions_majors (
+        position_id INTEGER NOT NULL,
+        major_id INTEGER NOT NULL,
+        PRIMARY KEY (position_id, major_id),
+        FOREIGN KEY(position_id) REFERENCES position (id),
+        FOREIGN KEY(major_id) REFERENCES major (id)
+    );
+    ```
+
+*   **positions_research_topics**: Links research positions with relevant research topics.
+    ```sql
+    CREATE TABLE positions_research_topics (
+        position_id INTEGER NOT NULL,
+        research_topic_name VARCHAR NOT NULL,
+        PRIMARY KEY (position_id, research_topic_name),
+        FOREIGN KEY(position_id) REFERENCES position (id),
+        FOREIGN KEY(research_topic_name) REFERENCES research_topic (name)
+    );
+    ```
+
+*   **positions_languages**: Links research positions with required languages.
+    ```sql
+    CREATE TABLE positions_languages (
+        position_id INTEGER NOT NULL,
+        language_name VARCHAR NOT NULL,
+        PRIMARY KEY (position_id, language_name),
+        FOREIGN KEY(position_id) REFERENCES position (id),
+        FOREIGN KEY(language_name) REFERENCES language (name)
+    );
+    ```
+
+*   **positions_courses**: Links research positions with recommended or required courses.
+    ```sql
+    CREATE TABLE positions_courses (
+        position_id INTEGER NOT NULL,
+        course_id INTEGER NOT NULL,
+        PRIMARY KEY (position_id, course_id),
+        FOREIGN KEY(position_id) REFERENCES position (id),
+        FOREIGN KEY(course_id) REFERENCES course (id)
+    );
+    ```
+
+*   **course_enrollment**: Links students to the courses they are enrolled in and stores their grade.
+    ```sql
+    CREATE TABLE course_enrollment (
+        id INTEGER NOT NULL,
+        student_id INTEGER NOT NULL,
+        course_id INTEGER NOT NULL,
+        grade VARCHAR(2),
+        PRIMARY KEY (id),
+        FOREIGN KEY(student_id) REFERENCES student (id),
+        FOREIGN KEY(course_id) REFERENCES course (id)
+    );
+    ```
+    
 Provide a UML diagram of your database model showing the associations and relationships among tables. 
 
 ## 2.2 Modules and Interfaces
