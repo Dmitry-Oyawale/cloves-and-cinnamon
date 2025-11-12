@@ -298,9 +298,18 @@ Repeat the above for other modules you included in your application.
 
 Provide UI sketches or screenshots for the following pages:
  * Faculty main page
+
+
  * Student main page (show how you will display "all positions" vs "recommended positions")
+<img src ="md-images/open_positions.png"></img>
+
  * Faculty creating a position 
- * Faculty accepting /rejecting an application
+<img src ="md-images/edit_or_create.png"></img>
+
+ * Faculty accepting/rejecting an application
+<img src ="md-images/inbox.png"></img>
+
  * Student applying a position
+<img src ="md-images/application_page.png"></img>
 
 # 3. References
