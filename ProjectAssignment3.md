@@ -272,27 +272,26 @@ Include a detailed description of the routes your application will implement.
 
 #### 2.2.2.1 \<Blueprint1> Routes auth.routes
 
-|   | Methods           | URL Path   | Description  |
-|:--|:------------------|:-----------|:-------------|
-|1. |  'GET', 'POST'  | student/login |   student login page  |
-|2. |   'GET', 'POST'  | student/register |  student register account |
-|3. |   'GET'  | student/logout |  student logout |
-|4. |  'GET', 'POST'  | faculty/login   | faculty login page |
-|5. | 'GET', 'POST'  |  faculty/register |  faculty register account  |
-|6. | 'GET'  | faculty/logout | faculty logout |
+|    | Methods           | URL Path   | Description               |
+|:---|:------------------|:-----------|:--------------------------|
+| 1. |  'GET', 'POST'  | student/login | student login page        |
+| 2. |   'GET', 'POST'  | student/register | student registration page |
+| 3. |   'GET'  | student/logout | student logout            |
+| 4. |  'GET', 'POST'  | faculty/login   | faculty login page        |
+| 5. | 'GET'  | faculty/logout | faculty logout            |
 
-#### 2.2.2.2 \<Blueprint2> Routes  main.routes -- student
+#### 2.2.2.2 \<Blueprint2> Routes  main.student.routes -- student
 
-|   | Methods           | URL Path   | Description  |
-|:--|:------------------|:-----------|:-------------|
-|1. | 'GET' | student/profile/view | student view their profile |
-|2. | 'GET', 'POST' | student/profile/edit | student edit their profile |
-|3. |                   |            |              |
-|4. |                   |            |              |
-|5. |                   |            |              |
-|6. |                   |            |              |
+|   | Methods      | URL Path   | Description                              |
+|:--|:-------------|:-----------|:-----------------------------------------|
+|1. | 'GET'        | student/profile/view | students or faculty view student profile |
+|2. | 'GET', 'POST' | student/profile/edit | student edits their profile              |
+|3. |              |            |                                          |
+|4. |              |            |                                          |
+|5. |              |            |                                          |
+|6. |              |            |                                          |
 
-#### 2.2.2.3 \<Blueprint3> Routes main.routes -- faculty
+#### 2.2.2.3 \<Blueprint3> Routes main.faculty.routes -- faculty
 
 |   | Methods           | URL Path   | Description  |
 |:--|:------------------|:-----------|:-------------|
@@ -303,38 +302,36 @@ Include a detailed description of the routes your application will implement.
 |5. |                   |            |              |
 |6. |                   |            |              |
 
-#### 2.2.2.4 \<Blueprint4> Routes main.routes -- application
+#### 2.2.2.4 \<Blueprint4> Routes main.application.routes -- application
 
-|   | Methods           | URL Path   | Description  |
-|:--|:------------------|:-----------|:-------------|
-|1. |                   | faculty/application/reject | faculty reject students' application |
-|2. |                   | faculty/application/approve | faculty approve students' application |
-|3. |                   | student/application/withdraw | student withdraw their 'pending' applications |
-|4. |                   | faculty/application | faculty view all the applications |
-|5. |                   | student/application | student view all the applications |
-|6. |                   |            |              |
+|   | Methods | URL Path                     | Description                                   |
+|:--|:--------|:-----------------------------|:----------------------------------------------|
+|1. | 'POST'  | application/reject           | faculty reject students' application          |
+|2. | 'POST'  | application/approve          | faculty approve students' application         |
+|3. | 'POST'  | application/withdraw | student withdraw their 'pending' applications |
+|4. | 'GET'   | application          | page to view all the applications             |
 
-#### 2.2.2.5 \<Blueprint5> Routes
+#### 2.2.2.5 \<Blueprint5> Routes main.position.routes -- position
 
-|   | Methods           | URL Path   | Description  |
-|:--|:------------------|:-----------|:-------------|
-|1. |                   |            |              |
-|2. |                   |            |              |
-|3. |                   |            |              |
-|4. |                   |            |              |
-|5. |                   |            |              |
-|6. |                   |            |              |
+|   | Methods     | URL Path        | Description                                    |
+|:--|:------------|:----------------|:-----------------------------------------------|
+|1. | 'POST'      | position/create | faculty-only method for creating positions     |
+|2. | 'GET, POST' | position/edit   | faculty-only page for editing positions        |
+|3. | 'GET, POST' | position/delete | faculty-only method for deleting a position    |
+|4. | 'GET'       | position/view   | page for viewing position info                 |
+|5. | 'GET, POST' | position/apply  | student-only method for applying to a position |
+|6. |             |                 |                                                |
 
-#### 2.2.2.2 \<Blueprint2> Routes
+#### 2.2.2.2 \<Blueprint6> Routes main.recommendation.routes -- recommendation
 
-|   | Methods           | URL Path   | Description  |
-|:--|:------------------|:-----------|:-------------|
-|1. |                   |            |              |
-|2. |                   |            |              |
-|3. |                   |            |              |
-|4. |                   |            |              |
-|5. |                   |            |              |
-|6. |                   |            |              |
+|   | Methods | URL Path               | Description                                                    |
+|:--|:--------|:-----------------------|:---------------------------------------------------------------|
+|1. | 'POST'  | recommendation/request | student-only method for requesting a faculty recommendation    |
+|2. | 'POST'  | recommendation/reject  | faculty-only method for rejecting a student rec. request       |
+|3. | 'POST'  | recommendation/accept  | faculty-only method for accepting a student rec. request       |
+|4. | 'GET'   | recommendation         | view incoming (faculty) or sent (student) rec. requests (page) |
+|5. |         |                        |                                                                |
+|6. |         |                        |                                                                |
 
 Repeat the above for other modules you included in your application. 
 
