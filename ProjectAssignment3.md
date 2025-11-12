@@ -316,10 +316,10 @@ Include a detailed description of the routes your application will implement.
 |   | Methods     | URL Path        | Description                                    |
 |:--|:------------|:----------------|:-----------------------------------------------|
 |1. | 'POST'      | position/create | faculty-only method for creating positions     |
-|2. | 'GET, POST' | position/edit   | faculty-only page for editing positions        |
-|3. | 'GET, POST' | position/delete | faculty-only method for deleting a position    |
+|2. | 'GET', 'POST' | position/edit   | faculty-only page for editing positions        |
+|3. | 'GET', 'POST' | position/delete | faculty-only method for deleting a position    |
 |4. | 'GET'       | position/view   | page for viewing position info                 |
-|5. | 'GET, POST' | position/apply  | student-only method for applying to a position |
+|5. | 'GET', 'POST' | position/apply  | student-only method for applying to a position |
 |6. |             |                 |                                                |
 
 #### 2.2.2.6 \<Blueprint6> Routes main.recommendation.routes -- recommendation
