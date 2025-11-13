@@ -279,6 +279,9 @@ Include a detailed description of the routes your application will implement.
 | 3. |   'GET'  | student/logout | student logout            |
 | 4. |  'GET', 'POST'  | faculty/login   | faculty login page        |
 | 5. | 'GET'  | faculty/logout | faculty logout            |
+| 6. | 'GET'  | faculty/verify/<token> | faculty verifies email          |
+| 7. | 'GET'  | faculty/login/sso | faculty login with Auth0 SSO          |
+
 
 #### 2.2.2.2 \<Blueprint2> Routes  main.student.routes -- student
 
@@ -286,6 +289,10 @@ Include a detailed description of the routes your application will implement.
 |:--|:-------------|:----------------------------------|:-----------------------------------------|
 |1. | 'GET'        | student/<student_id>/profile/view | students or faculty view student profile |
 |2. | 'GET', 'POST' | student/<student_id>/profile/edit              | student edits their profile              |
+|3. | 'GET'        | student/positions | students views positions |
+|4. | 'GET'        | student/positions/recommended | students views recommended positions |
+| 5. | 'GET', 'POST' | student                 | main route for student |
+
 
 #### 2.2.2.3 \<Blueprint3> Routes main.faculty.routes -- faculty
 
@@ -293,6 +300,10 @@ Include a detailed description of the routes your application will implement.
 |:--|:------------------|:----------------------------------|:-------------|
 |1. | 'GET' | faculty/<faculty_id>/profile/view | faculty view their profile |
 |2. | 'GET', 'POST' | faculty/editlists                 | faculty edit the predefined lists |
+| 3. | 'GET', 'POST' | faculty/filters | faculty-only page for editing predefined list of values            |
+| 4. | 'GET', 'POST' | faculty/recommendations           | faculty viewing reference requests from students |
+| 4. | 'GET', 'POST' | faculty/positions           | faculty viewing their own positions |
+| 5. | 'GET', 'POST' | faculty                 | main route for faculty |
 
 #### 2.2.2.4 \<Blueprint4> Routes main.application.routes -- application
 
@@ -301,6 +312,7 @@ Include a detailed description of the routes your application will implement.
 |1. | 'POST'  | application/<application_id>/reject | faculty reject students' application          |
 |2. | 'POST'  | application/<application_id>/approve                 | faculty approve students' application         |
 |3. | 'POST'  | application/<application_id>/withdraw                | student withdraw their 'pending' applications |
+|3. | 'POST'  | application/<application_id>                | page for viewing application details |
 |4. | 'GET'   | application                         | page to view all the applications             |
 
 #### 2.2.2.5 \<Blueprint5> Routes main.position.routes -- position
@@ -312,6 +324,7 @@ Include a detailed description of the routes your application will implement.
 | 3. | 'GET', 'POST' | position/<position_id>/delete              | faculty-only method for deleting a position    |
 | 4. | 'GET'       | position/<position_id>/view                | page for viewing position info                 |
 | 5. | 'GET', 'POST' | position/<position_id>/apply | student-only method for applying to a position |
+
 
 
 #### 2.2.2.6 \<Blueprint6> Routes main.recommendation.routes -- recommendation
@@ -344,4 +357,5 @@ Provide UI sketches or screenshots for the following pages:
 <img src ="md-images/application_page.png"></img>
 
 # 3. References
+
 
