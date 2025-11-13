@@ -329,10 +329,10 @@ Repeat the above for other modules you included in your application.
 
 Provide UI sketches or screenshots for the following pages:
  * Faculty main page
-<img src ="md-images/my_positions.png"></img>
+<img src ="md-images/faculty_main.png"></img>
 
- * Student main page (show how you will display "all positions" vs "recommended positions")
-<img src ="md-images/open_positions.png"></img>
+ * Student main page
+<img src ="md-images/student_main.png"></img>
 
  * Faculty creating a position 
 <img src ="md-images/edit_or_create.png"></img>
