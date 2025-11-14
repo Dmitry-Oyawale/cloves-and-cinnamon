@@ -300,8 +300,7 @@ Include a detailed description of the routes your application will implement.
 |:--|:------------------|:----------------------------------|:-------------|
 |1. | 'GET' | faculty/<faculty_id>/profile/view | faculty view their profile |
 |2. | 'GET', 'POST' | faculty/editlists                 | faculty edit the predefined lists |
-| 3. | 'GET', 'POST' | faculty/filters | faculty-only page for editing predefined list of values            |
-| 4. | 'GET', 'POST' | faculty/recommendations           | faculty viewing reference requests from students |
+| 3. | 'GET', 'POST' | faculty/recommendations           | faculty viewing reference requests from students |
 | 4. | 'GET', 'POST' | faculty/positions           | faculty viewing their own positions |
 | 5. | 'GET', 'POST' | faculty                 | main route for faculty |
 
@@ -357,6 +356,7 @@ Provide UI sketches or screenshots for the following pages:
 <img src ="../md-images/application_page.png"></img>
 
 # 3. References
+
 
 
 
