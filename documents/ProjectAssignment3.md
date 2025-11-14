@@ -256,7 +256,7 @@ Class Tables
     ```
     
 Provide a UML diagram of your database model showing the associations and relationships among tables. 
-<img src ="../md-images/uml.png">
+<img src ="../md-images/uml2.png">
 
 ## 2.2 Modules and Interfaces
 
@@ -360,6 +360,7 @@ Provide UI sketches or screenshots for the following pages:
 <img src ="../md-images/application_page.png"></img>
 
 # 3. References
+
 
 
 
