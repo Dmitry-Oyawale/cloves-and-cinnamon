@@ -256,11 +256,15 @@ Class Tables
     ```
     
 Provide a UML diagram of your database model showing the associations and relationships among tables. 
+<img src ="../md-images/uml.png">
 
 ## 2.2 Modules and Interfaces
 
 ### 2.2.1 Overview
 Describe the high-level architecture of your software:  i.e., the major modules/blueprints and how they fit together. Provide a UML component diagram that illustrates the architecture of your software. Briefly mention the role of each module in your architectural design. Please refer to the "System Level Design" lectures in Week 4. 
+
+<img src ="../md-images/2.png">
+
 
 ### 2.2.2 Interfaces
 
@@ -356,6 +360,7 @@ Provide UI sketches or screenshots for the following pages:
 <img src ="../md-images/application_page.png"></img>
 
 # 3. References
+
 
 
 
