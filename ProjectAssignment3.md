@@ -34,7 +34,7 @@ Prepared by:
 | Name | Date       | Changes | Version |
 | ------ |------------| --------- | --------- |
 |Revision 1 | 2025-11-11 |Initial draft | 1.0        |
-|      |            |         |         |
+|Revision 2 | 2025-11-14 | Final draft  | 2.0        |
 
 
 # 1. Introduction
@@ -343,5 +343,4 @@ Provide UI sketches or screenshots for the following pages:
  * Student applying for a position
 <img src ="md-images/application_page.png"></img>
 
-# 3. References
 
