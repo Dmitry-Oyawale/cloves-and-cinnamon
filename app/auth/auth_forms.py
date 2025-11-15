@@ -13,11 +13,11 @@ class RegistrationForm(FlaskForm):
     lastname = StringField('Last Name', validators = [DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     id = StringField('Address', validators = [DataRequired()])
-    major = 'Major(s)'
+    #major = 'Major(s)'
     gpa = StringField('GPA', validators = [DataRequired()])
-    research_topics = 'Interests'
-    languages = 'Languages'
-    courses = 'Courses Taken'
+    #research_topics = 'Interests'
+    #languages = 'Languages'
+    #courses = 'Courses Taken'
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField('Password', validators=[DataRequired(), EqualTo('password')])
 
