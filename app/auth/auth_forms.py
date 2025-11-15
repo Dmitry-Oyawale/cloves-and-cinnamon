@@ -12,7 +12,12 @@ class RegistrationForm(FlaskForm):
     firstname = StringField('First Name', validators = [DataRequired()])
     lastname = StringField('Last Name', validators = [DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    address = TextAreaField('Address', [Length(min=0, max=200)])
+    id = StringField('Address', validators = [DataRequired()])
+    major = 'Major(s)'
+    gpa = StringField('GPA', validators = [DataRequired()])
+    research_topics = 'Interests'
+    languages = 'Languages'
+    courses = 'Courses Taken'
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField('Password', validators=[DataRequired(), EqualTo('password')])
 
@@ -35,3 +40,4 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
+
