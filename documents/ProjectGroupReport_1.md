@@ -1,13 +1,13 @@
 # Project Group Report - 1
 
-## Team: `<Your Team Name>`
+## Team: `Resumermaxxers`
 
 List team members and their GitHub usernames
 
-* `<member1>`,`<username1>`
-* `<member2>`,`<username2>`
-* `<member3>`,`<username3>`
-* `<member4>`,`<username4>`
+* `Kevin Lai`,`resumemaxxers`
+* `Ziyue Chen`,`resumemaxxers`
+* `Jim Xiang`,`resumemaxxers`
+* `Matvey Shestopalov`,`resumemaxxers`
 
 ---
 **Course** : CS 3733 - Software Engineering
