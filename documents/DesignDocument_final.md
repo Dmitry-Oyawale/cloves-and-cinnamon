@@ -291,13 +291,12 @@ Include a detailed description of the routes your application will implement.
 
 |    | Methods           | URL Path   | Description               |
 |:---|:------------------|:-----------|:--------------------------|
-| 1. |  'GET', 'POST'  | /auth/student/session | student login page        |
+| 1. |  'GET', 'POST'  | /auth/session | login page        |
 | 2. |   'GET', 'POST'  | /auth/student/registration | student registration page |
 | 3. |   'GET'  | /auth/session | student and faculty logout            |
-| 4. |  'GET', 'POST'  | /auth/faculty/session   | faculty login page        |
-| 5. | 'GET'  | /auth/email_verifications/<token> | faculty verifies email          |
-| 6. | 'GET'  | /auth/new_verification | resending verification for faculty          |
-| 7. | 'GET'  | /auth/faculty/sso_session | faculty login with Auth0 SSO          |
+| 4. | 'GET'  | /auth/email_verifications/<token> | faculty verifies email          |
+| 5. | 'GET'  | /auth/new_verification | resending verification for faculty          |
+| 6. | 'GET'  | /auth/faculty/sso_session | faculty login with Auth0 SSO          |
 
 
 #### 2.2.2.2 \<Blueprint2> Routes  main.student.routes -- student
