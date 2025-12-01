@@ -340,7 +340,7 @@ Repeat the above for other modules you included in your application.
 Provide UI sketches or screenshots for the following pages:
  * Faculty main page
 
-<img src ="../md-images/fac_dash.png"></img>
+<img src ="../md-images/faculty_dash.png"></img>
 
  * Student main page
 
