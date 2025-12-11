@@ -333,6 +333,15 @@ Include a detailed description of the routes your application will implement.
 |13. | 'GET', 'POST' | faculty/<faculty_id>/lists/settings                | faculty edit the predefined lists |
 | 14. | 'GET', 'POST' | faculty/recommendations           | faculty viewing reference requests from students |
 
+#### 2.2.2.4 \<Blueprint4> Routes main.routes -- main
+
+|   | Methods           | URL Path                          | Description  |
+|:--|:------------------|:----------------------------------|:-------------|
+|1. | 'GET', 'POST' | main/index | student index home page |
+|2. | 'GET', 'POST' | main/faculty_index | faculty home page |
+|3. | 'GET',  | main/position<position_id>/view                | view position        |
+|4. | 'GET',  | main/studentlist<position_id>/view                | faculty view student application list        |
+
 
 Repeat the above for other modules you included in your application. 
 
