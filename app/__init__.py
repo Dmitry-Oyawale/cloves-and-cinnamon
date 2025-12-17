@@ -40,12 +40,4 @@ def create_app(config_class = Config):
     errors.template_folder = Config.TEMPLATE_FOLDER_ERRORS
     app.register_blueprint(errors)
 
-    from app.student import student_blueprint as student
-    student.template_folder = Config.TEMPLATE_FOLDER_STUDENT
-    app.register_blueprint(student)
-
-    from app.faculty import faculty_blueprint as faculty
-    faculty.template_folder = Config.TEMPLATE_FOLDER_FACULTY
-    app.register_blueprint(faculty)
-
     return app
