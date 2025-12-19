@@ -2,7 +2,7 @@ from app import db
 from flask import render_template, flash, redirect, url_for, request, jsonify
 import sqlalchemy as sqla
 
-from app.main.models import Viewer, Author, Post
+from app.main.models import Viewer, Author, Post, Comment
 from app.main.forms import *
 from flask_login import current_user, login_required
 from sqlalchemy import text
@@ -81,3 +81,27 @@ def edit_position(post_id):
         form.date.data = post.date
         form.tags.data = post.tags
     return render_template('edit_post.html', title='Edit Post', form=form, post=post)
+
+@main.route('/author/<post_id>/deletion', methods=['GET', 'POST'])
+@login_required
+@role_required("author")
+def delete_position(post_id):
+    post = Post.query.get_or_404(post_id)
+    
+    if current_user.role != 'author' or post.author_id != current_user.id:
+        flash('You are not authorized to delete this position.', 'error')
+        return redirect(url_for('main.index'))
+    
+    Comment.query.filter_by(post_id=post.id).delete()
+    
+    db.session.delete(post)
+    db.session.commit()
+    flash('Post deleted successfully!', 'success')
+    return redirect(url_for('main.index'))
+
+@main.route('/post/<post_id>/like', methods=['GET', 'POST'])
+@login_required
+def like_post(post_id):
+    post=Post.query.get_or_404(post_id)
+    post.likes = post.likes + 1
+
