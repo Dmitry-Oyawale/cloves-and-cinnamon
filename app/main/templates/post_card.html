@@ -12,7 +12,9 @@
       {{ post.description | truncate(120, True, '…') }}
     </p>
     {% for tag in post.tags %}
-      
+      <a class="btn btn-add">
+          {{ tag.name }}
+      </a>
     {% endfor %}
     <a href="{{ url_for('main.read_more', post_id=post.id) }}" class="btn btn-add">read more</a>
     {% if current_user.role == 'faculty' %}

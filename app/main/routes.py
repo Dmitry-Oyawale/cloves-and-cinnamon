@@ -54,3 +54,30 @@ def create_post(author_id):
                 print(err)
 
     return render_template('create_post.html', title='Create Post', form=cform, user=author)
+
+@main.route('/post/<post_id>/view', methods=['GET'])
+@login_required
+def view_post(post_id):
+    post=Post.query.get_or_404(post_id)
+    return render_template('post.html', post=post)
+
+@main.route('/author/<post_id>/settings', methods=['GET', 'POST'])
+@login_required
+@role_required("author")
+def edit_position(post_id):
+    form = EditPost()
+    post=Post.query.get_or_404(post_id)
+    if form.validate_on_submit():
+        post.name = form.name.data
+        post.description = form.description.data
+        post.date = form.date.data
+        post.tags = form.tags.data
+        db.session.commit()
+        flash('Your changes have been saved.')
+        return redirect(url_for('main.view_post', post_id=post.id))
+    elif request.method == 'GET':
+        form.name.data = post.name
+        form.description.data = post.description
+        form.date.data = post.date
+        form.tags.data = post.tags
+    return render_template('edit_post.html', title='Edit Post', form=form, post=post)

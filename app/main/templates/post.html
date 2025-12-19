@@ -1,0 +1,95 @@
+{% extends "bootstrap_base.html" %}
+{% import 'bootstrap_wtf.html' as wtf %}
+
+{% block content %}
+
+<main class="container my-4">
+
+
+    <h2 class="text-center mb-4">{{ post.name }}</h2>
+
+    <div class="row g-3">
+
+
+        <div class="col-md-4 d-flex flex-column gap-3">
+
+
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <p class="mb-6 mt-3">
+                        <strong>By</strong>
+                        {{ post.author.username }}
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+
+                    <p class="mb-2 me-8">
+                        <strong>Published on:</strong>
+                        {{ post.date.date() }}
+                    </p>
+                    
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-8 d-flex flex-column gap-3">
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                
+                    <p class="mb-0">{{ post.statement }}</p>
+                </div>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                        <div class="col-md-6 mb-3">
+                            <h6 class="fw-bold">Tags</h6>
+                            <ul>
+                                {% for tag in post.tags %}
+                                    <li>{{ tag.name }}</li>
+                                {% else %}
+                                    <li class="text-muted">None specified</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div> 
+
+    </div>
+
+
+    <div class="text-center mt-4">
+        {% if current_user.is_authenticated and current_user.role == 'viewer' %}
+            <a class="btn btn-add"
+               href="{{ url_for('student.apply_position', position_id=position.id) }}">
+                Like this Position
+            </a>
+            {{ post.likes }}
+        {% endif %}
+
+        {% if current_user.role == 'author' %}
+            <a href="{{ url_for('faculty.edit_position', position_id=position.id) }}"
+               class="btn btn-pending">Edit Post</a>
+
+            <a href="{{ url_for('faculty.delete_position', position_id=position.id) }}"
+               class="btn btn-delete"
+               onclick="return confirm('Are you sure you want to delete this position?');">
+                Delete Post
+            </a>
+        {% endif %}
+    </div>
+
+</main>
+
+{% endblock %}

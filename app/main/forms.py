@@ -23,4 +23,14 @@ class CreatePost(FlaskForm):
 
     submit = SubmitField('Create Post')
 
+class EditPost(FlaskForm):
+    name = StringField('Title', validators=[DataRequired()])
+    description = StringField('Text', validators=[DataRequired()])
+    date = DateField('Publication Date', validators=[DataRequired()], render_kw={"class": "datepicker-input"})
+    tags = QuerySelectMultipleField('Tags',
+                                      query_factory=lambda: db.session.scalars(sqla.select(Tag).order_by(Tag.name)),
+                                      get_label=lambda theTopic: theTopic.name,
+                                      widget=ListWidget(prefix_label=False),
+                                      option_widget=CheckboxInput())
 
+    submit = SubmitField('Create Post')
