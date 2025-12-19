@@ -21,7 +21,7 @@
 
     <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #b4cbdd;">
         <div class="container">
-          <a class="navbar-brand" href="{{ url_for('main.index') }}">Role Matcher</a>
+          <a class="navbar-brand" href="{{ url_for('main.index') }}">Cloves and Cinnamon</a>
           <button class="navbar-toggler" type="button" >
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -30,7 +30,7 @@
               {% if not current_user.is_anonymous %}
                 {% if current_user.role == 'author' %}
                   <li class="nav-item border border-light px-2 ms-2 ">
-                    <a class="nav-link" aria-current="page" href="{{ url_for('main.index') }}">Create Class</a>
+                    <a class="nav-link" aria-current="page" href="{{ url_for('main.create_post', author_id=current_user.id) }}">Create Post</a>
                   </li>
                 {% endif %}
               {% endif %}

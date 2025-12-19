@@ -15,13 +15,13 @@ from app.auth.role_required import role_required
 @main.route('/index', methods=['GET'])
 def index():
     #courses = db.session.scalars(sqla.select(Course))
-    Viewers = db.session.scalars(sqla.select(Viewer))
-    return render_template('base.html', title="Course List", viewers = Viewers)
+    posts = db.session.scalars(sqla.select(Post))
+    return render_template('base.html', title="Course List", posts = posts)
 
-@main.route('/author/<author_id>/positions', methods=['GET', 'POST'])
+@main.route('/author/<author_id>/post', methods=['GET', 'POST'])
 @login_required
 @role_required("author")
-def create_position(author_id):
+def create_post(author_id):
     author = db.session.get(Author, author_id)
     if author is None:
         flash('Author not found.', 'error')
@@ -38,7 +38,7 @@ def create_position(author_id):
             name=cform.name.data,
             description=cform.description.data,
             date=datetime.strptime(str(cform.date.data), '%Y-%m-%d').date(),
-            faculty_id=author.id
+            author_id=author.id
         )
 
         new_post.tags = cform.tags.data
@@ -53,4 +53,4 @@ def create_position(author_id):
             for err in errorMessages:
                 print(err)
 
-    return render_template('create_post.html', title='Create Position', form=cform, user=faculty_user)
+    return render_template('create_post.html', title='Create Post', form=cform, user=author)

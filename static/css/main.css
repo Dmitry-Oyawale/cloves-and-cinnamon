@@ -39,17 +39,15 @@ body {
 }
 
 .postlist {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .post-box {
-    display: flex;
-    vertical-align: middle;
-    background-color: #f2f2f2;
-    width: 32%;
-    margin: 8px;
-    padding: 5px;
+  flex: 0 0 calc(33.333% - 10.666px); 
+  padding: 5px;
+  background-color: #f2f2f2;
 }
 
 .useritem{

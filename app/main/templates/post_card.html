@@ -1,0 +1,26 @@
+<div class="card text-center">
+  <div class="card-body">
+    <h5 class="card-title">
+      {{ post.name }}
+    </h5>
+
+    <p class="card-text text-muted small">
+      Published on: {{ post.date.date() }}
+    </p>
+
+    <p class="card-text">
+      {{ post.description | truncate(120, True, '…') }}
+    </p>
+    {% for tag in post.tags %}
+      
+    {% endfor %}
+    <a href="{{ url_for('main.read_more', post_id=post.id) }}" class="btn btn-add">read more</a>
+    {% if current_user.role == 'faculty' %}
+      <a href="{{ url_for('main.view_student_list', position_id=position.id) }}" class="btn btn-add">View Applications</a>
+    {% endif %}
+  </div>
+  
+  <div class="card-footer text-muted">
+    Posted by: <span class="useritem">{{ post.author.username }}</span>
+  </div>
+</div>
