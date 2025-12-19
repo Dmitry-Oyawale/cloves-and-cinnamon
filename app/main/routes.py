@@ -181,3 +181,57 @@ def leave_comment(post_id):
         flash("Comment submitted, waiting for approval!")
 
     return redirect(url_for('main.read_more', post_id=post.id))
+
+@main.route('/author/tags/settings', methods=['GET', 'POST'])
+@login_required
+@role_required("author")
+def edit_tags():
+    form = AddTagForm(prefix='tag')
+    dform = DeleteTagForm(prefix='tag_delete')
+
+    if dform.submit.data and dform.validate_on_submit(): 
+        try:
+            for tag in dform.tags.data:
+                db.session.delete(tag)
+
+            db.session.commit()
+            flash('Tags deleted!', 'success')
+            return redirect(url_for('main.edit_tags'))
+        except sqla.exc.IntegrityError:
+            db.session.rollback()
+            flash('Cannot delete this item due to dependencies!', 'error')
+            return redirect(url_for('main.edit_tags'))
+    else:
+        for fieldName, errorMessages in dform.errors.items():
+            for err in errorMessages:
+                print(err)
+
+    if form.submit.data and form.validate_on_submit():
+        if form.name.data:
+            name = form.name.data.strip()
+
+            existing_topic = db.session.scalars(
+                sqla.select(Tag).where(Tag.name == name)
+            ).first()
+
+            if existing_topic:
+                flash(f'Tag "{name}" already exists.', 'error')
+                return redirect(url_for('main.edit_tags'))
+            
+            new_tag = Tag(
+                name = tag.name.data
+            )
+
+            db.session.add(new_tag)
+            db.session.commit()
+            flash('Tag added!', 'success')
+            return redirect(url_for('main.edit_tags'))
+        else:
+            flash('Please complete the form', 'error')
+            return redirect(url_for('main.edit_tags'))
+    else:
+        for fieldName, errorMessages in form.errors.items():
+            for err in errorMessages:
+                print(err)
+
+    return render_template('edit_tags.html', title='Edit tags', form=form, dform=dform)

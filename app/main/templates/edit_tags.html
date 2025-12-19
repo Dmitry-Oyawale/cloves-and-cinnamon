@@ -1,0 +1,54 @@
+{% extends "bootstrap_base.html" %}
+{% import 'bootstrap_wtf.html' as wtf %}
+
+{% block content %}
+
+<h2 class="mb-3 mt-3">Edit tags</h2>
+
+<div class="card mb-3">
+  <div class="card-body">
+
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h5 class="mb-0">Tags</h5>
+
+      <div class="d-flex gap-2 mt-3">
+        <button class="btn btn-sm btn-add"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#tagAdd">
+          Add
+        </button>
+
+        <button class="btn btn-sm btn-delete"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#tagDelete">
+          Delete
+        </button>
+      </div>
+    </div>
+
+    <p class="text-muted small mb-0">Add or delete tags.</p>
+
+    <div class="mt-3">
+      <div class="collapse mb-3" id="tagAdd">
+        <form action="{{ url_for('main.edit_tags') }}" method="POST">
+          {{ form.hidden_tag() }}
+          {{ wtf.form_field(form.name) }}
+          {{ wtf.form_field(form.submit) }}
+        </form>
+      </div>
+
+      <div class="collapse" id="tagDelete">
+        <form action="{{ url_for('faculty.edit_tags') }}" method="POST">
+          {{ dform.hidden_tag() }}
+          {{ wtf.form_field(dform.tags) }}
+          {{ wtf.form_field(dform.submit) }}
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -45,3 +45,16 @@ class EditAbout(FlaskForm):
 class CommentForm(FlaskForm):
     statement = StringField('Text', validators=[DataRequired()])
     submit = SubmitField('Add Comment')
+
+class AddTagForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    submit = SubmitField('Add tag')
+
+class DeleteTagForm(FlaskForm):
+    tags = QuerySelectMultipleField('Tags',
+                                      query_factory=lambda: db.session.scalars(sqla.select(Tag).order_by(Tag.name)),
+                                      get_label=lambda theTopic: theTopic.name,
+                                      widget=ListWidget(prefix_label=False),
+                                      option_widget=CheckboxInput())
+    submit = SubmitField('Delete tag')
+
